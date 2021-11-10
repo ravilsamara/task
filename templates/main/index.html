@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Главная
+{% endblock %}
+{% block content %}
+    <h1>задачи</h1>
+    {% if task %}
+        {% for foo in task %}
+            <div class="alert alert-warning mt-2">
+                <h3>{{ foo.title }}</h3>
+                <p>{{ foo.text }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Нет задач!</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    register
+{% endblock %}
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <label for="">{{ field.label }}</label>
+            <div>{{ field }}</div>
+            {% if field.errors %}
+                {% for error in field.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+
+        <button type="submit">register</button>
+    </form>
+{% endblock %}
